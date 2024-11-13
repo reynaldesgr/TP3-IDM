@@ -33,13 +33,6 @@ int GetNbObjetGraphique(MetaObjetGraphique* this_)
     return this_->NbObjetGraphique;
 }
 
-// Constructor (ObjetGraphique)
-void ConstructorObjetGraphique(ObjetGraphique* this_)
-{
-    this_->x = 0;
-    this_->y = 0;
-}
-
 /*********************************
  *           CERCLE
 *********************************/
@@ -104,6 +97,15 @@ static MetaObjetGraphique metaObjetGraphique = {
 };
 
 
+// ObjetGraphique
+void ConstructorObjetGraphique(ObjetGraphique* this_)
+{
+    this_->x = 0;
+    this_->y = 0;
+
+    this_->myClass = &metaObjetGraphique;
+}
+
 // Cercle
 
 void ConstructorCercle(Cercle* this_) {
@@ -117,25 +119,25 @@ void ConstructorCercle(Cercle* this_) {
     
     this_->radius = 0; 
 
-    this_->mySuperClass.type = 0;
+    this_->mySuperClass.type = CERCLE;
 }
 
 void afficherCercle(ObjetGraphique * this_)
 {
     Cercle * thisCercle_ = (Cercle*) this_;
-    printf("[afficherCercle] : affichage cercle de rayon = %d\n", thisCercle_->radius); 
+    printf("    [afficherCercle] : affichage cercle de rayon = %d\n", thisCercle_->radius); 
 }
 
 void deplacerCercle(ObjetGraphique * this_)
 {
     Cercle * thisCercle_ = (Cercle*) this_;
-    printf("[deplacerCercle] : deplacer cercle de rayon = %d\n", thisCercle_->radius); 
+    printf("    [deplacerCercle] : deplacer cercle de rayon = %d\n", thisCercle_->radius); 
 }
 
 void effacerCercle(ObjetGraphique * this_)
 {
     Cercle * thisCercle_ = (Cercle*) this_;
-    printf("[effacerCercle] : effacer cercle de rayon = %d\n", thisCercle_->radius); 
+    printf("    [effacerCercle] : effacer cercle de rayon = %d\n", thisCercle_->radius); 
 }
 
 // Rectangle
@@ -155,25 +157,25 @@ void ConstructorRectangle(Rectangle* this_) {
     this_->width = 0; 
     this_->height = 0;
 
-    this_->mySuperClass.type = 1;
+    this_->mySuperClass.type = RECTANGLE;
 }
 
 void afficherRectangle(ObjetGraphique * this_)
 {
     Rectangle * thisRectangle_ = (Rectangle *) this_;
-    printf("[afficherRectangle] : affichage rectangle de largeur = %d, longueur = %d\n", thisRectangle_->width, thisRectangle_->height);
+    printf("    [afficherRectangle] : affichage rectangle de largeur = %d, longueur = %d\n", thisRectangle_->width, thisRectangle_->height);
 }
 
 void deplacerRectangle(ObjetGraphique * this_)
 {
     Rectangle * thisRectangle_ = (Rectangle *) this_;
-    printf("[afficherRectangle] : deplacer rectangle de largeur = %d, longueur = %d\n", thisRectangle_->width, thisRectangle_->height);
+    printf("    [deplacerRectangle] : deplacer rectangle de largeur = %d, longueur = %d\n", thisRectangle_->width, thisRectangle_->height);
 }
 
 void effacerRectangle(ObjetGraphique * this_)
 {
     Rectangle * thisRectangle_ = (Rectangle *) this_;
-    printf("[effacerRectangle] : effacer rectangle de largeur = %d, longueur = %d\n", thisRectangle_->width, thisRectangle_->height);
+    printf("    [effacerRectangle] : effacer rectangle de largeur = %d, longueur = %d\n", thisRectangle_->width, thisRectangle_->height);
 }
 
 
